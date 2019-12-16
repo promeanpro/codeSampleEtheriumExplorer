@@ -1,0 +1,26 @@
+version: "2"
+networks:
+  ethexplorernetwork:
+    external: true
+
+services:
+  web:
+    build: .docker/web
+    volumes:
+      - ".:/src"
+    ports:
+      - "3030:3000"
+      - "35729:35729"
+    networks:
+      - ethexplorernetwork
+
+  geth:
+     build: .docker/geth
+     volumes:
+       - "./blockchain:/blockchain"
+     ports:
+       - "30303:30303"
+       - "8546:8546"
+     networks:
+       - ethexplorernetwork
+

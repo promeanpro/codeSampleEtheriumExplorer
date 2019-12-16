@@ -1,0 +1,1 @@
+geth --networkid 1114 attach ipc://home/mikhail/work/chain/geth.ipc
